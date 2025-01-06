@@ -27,3 +27,6 @@ export default function SideNav() {
     </div>
   );
 }
+
+
+// https://nextjs.org/learn/dashboard-app/navigating-between-pages
