@@ -21,16 +21,18 @@ export default function Search({ placeholder }: { placeholder: string }) {
     const params = new URLSearchParams(searchParams);
     console.log("params2 = ", params);
 
+    params.set('page', '1');
+    
     if (term) {
       params.set("query", term);
     } else {
       params.delete("query");
     }
     console.log("params2 = ", params);
-    
+
     // dashboard/invoices?query=lee if the user searches for "Lee".
     replace(`${pathname}?${params.toString()}`);
-  }, 300);
+  }, 1000);
 
   return (
     <div className="relative flex flex-1 flex-shrink-0">
