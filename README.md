@@ -7,3 +7,6 @@ For more information, see the [course curriculum](https://nextjs.org/learn) on t
 
 
 for ppr (chap10) : pnpm install next@canary
+
+chap11: pnpm i use-debounce
+
