@@ -93,3 +93,12 @@ export async function deleteInvoice(id: string) {
    * reachable if try is successful.
    * 
    */
+
+
+  /**
+   * 
+   * Handling 404 errors with the notFound function:
+   * visit : http://localhost:3000/dashboard/invoices/2e94d1ed-d220-449f-9f11-f0bbceed9645/edit
+   * 
+   * 
+   */
