@@ -19,6 +19,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
     // <form action={createInvoice}>
     <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
+        
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
