@@ -1,5 +1,4 @@
 import NextAuth from "next-auth";
-import { authConfig } from "./auth.config";
 import Credentials from "next-auth/providers/credentials";
 import { z } from "zod";
 import { sql } from "@vercel/postgres";
@@ -16,8 +15,34 @@ async function getUser(email: string): Promise<User | undefined> {
   }
 }
 
-export const { auth, signIn, signOut } = NextAuth({
-  ...authConfig,
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  debug: false,
+  // adapter: PrismaAdapter(prisma),
+  // pages: {
+  //   signIn: "/login",
+  // },
+  callbacks: {
+    // authorized({ auth, request: { nextUrl } }:any) {
+    //   const isLoggedIn = !!auth?.user;
+    //   const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
+    //   console.log("isLoggedIn = ", isLoggedIn)
+    //   console.log("isOnDashboard = ", isOnDashboard) 
+    //   if (isOnDashboard) {
+    //     if (isLoggedIn) return true;
+    //     return false; // Redirect unauthenticated users to login page
+    //   } else if (isLoggedIn) {
+    //     return Response.redirect(new URL("/dashboard", nextUrl));
+    //   }
+    //   return true;
+    // },
+    // async redirect({ url, baseUrl }) {
+    //   // Customize redirect behavior
+    //   if (url.startsWith(baseUrl)) return url
+    //   // Redirect to a specific page after successful login
+    //   else if (url.startsWith("/")) return `${baseUrl}${url}`
+    //   return baseUrl + "/dashboard" // Change this to your desired redirect path
+    // }
+  },
   providers: [
     Credentials({
       async authorize(credentials) {
